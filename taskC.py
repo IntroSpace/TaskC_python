@@ -1,4 +1,3 @@
-t = int(input())
 PULT_NUMS = "012345.6789*#"
 len_pult_nums = len(PULT_NUMS)
 
@@ -20,5 +19,10 @@ def sum_of_distances_of_num(full_num):
     return result_sum
 
 
-for _ in range(t):
-    print(sum_of_distances_of_num(input()))
+with open("dial.in") as f:
+    results = []
+    with open("dial.out", "w") as fw:
+        t = int(f.readline())
+        for _ in range(t):
+            results.append(str(sum_of_distances_of_num(f.readline().strip())))
+        fw.write('\n'.join(results))
